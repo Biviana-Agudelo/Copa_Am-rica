@@ -1,0 +1,9 @@
+H:\ProgramacionC#\CopaAmerica\CopaAmerica.App\CopaAmerica.App.Dominio\bin\Debug\netstandard2.0\CopaAmerica.App.Dominio.deps.json
+H:\ProgramacionC#\CopaAmerica\CopaAmerica.App\CopaAmerica.App.Dominio\bin\Debug\netstandard2.0\CopaAmerica.App.Dominio.dll
+H:\ProgramacionC#\CopaAmerica\CopaAmerica.App\CopaAmerica.App.Dominio\bin\Debug\netstandard2.0\CopaAmerica.App.Dominio.pdb
+H:\ProgramacionC#\CopaAmerica\CopaAmerica.App\CopaAmerica.App.Dominio\obj\Debug\netstandard2.0\CopaAmerica.App.Dominio.csprojAssemblyReference.cache
+H:\ProgramacionC#\CopaAmerica\CopaAmerica.App\CopaAmerica.App.Dominio\obj\Debug\netstandard2.0\CopaAmerica.App.Dominio.AssemblyInfoInputs.cache
+H:\ProgramacionC#\CopaAmerica\CopaAmerica.App\CopaAmerica.App.Dominio\obj\Debug\netstandard2.0\CopaAmerica.App.Dominio.AssemblyInfo.cs
+H:\ProgramacionC#\CopaAmerica\CopaAmerica.App\CopaAmerica.App.Dominio\obj\Debug\netstandard2.0\CopaAmerica.App.Dominio.csproj.CoreCompileInputs.cache
+H:\ProgramacionC#\CopaAmerica\CopaAmerica.App\CopaAmerica.App.Dominio\obj\Debug\netstandard2.0\CopaAmerica.App.Dominio.dll
+H:\ProgramacionC#\CopaAmerica\CopaAmerica.App\CopaAmerica.App.Dominio\obj\Debug\netstandard2.0\CopaAmerica.App.Dominio.pdb
