@@ -1,0 +1,36 @@
+@page
+@model CopaAmerica.App.FrontEnd.Pages.CrudEquipo.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Equipo[0].NombreEquipo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Equipo) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreEquipo)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.EquipoId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.EquipoId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.EquipoId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

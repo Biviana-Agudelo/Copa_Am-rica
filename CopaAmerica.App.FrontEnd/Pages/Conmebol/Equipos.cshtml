@@ -1,0 +1,13 @@
+﻿@page
+@model CopaAmerica.App.FrontEnd.Pages.EquiposModel
+@{
+}
+<h1>EQUIPOS COPA AMÉRICA CONMEBOL 2021</h1>
+<table class="table">
+    @foreach (var Equipo in Model.ListaEquipos)
+    {
+        <tr>
+            <td>@Equipo.NombreEquipo</td>
+        </tr>
+    }
+</table>

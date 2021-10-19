@@ -6,8 +6,10 @@ namespace CopaAmerica.App.Dominio
     public class Partido
     {
         public int PartidoId {get; set;}
-        public Equipo Equipo1 {get; set;}
-        public Equipo Equipo2 {get; set;}
+        public int Equipo1EqipoId {get; set;}
+        public virtual Equipo Equipo1 {get; set;}
+        public int Equipo2EqipoId {get; set;}
+        public virtual Equipo Equipo2 {get; set;}
         public string GolesE1 {get; set;}
         public string GolesE2 {get; set;}
         public string TirosArcoE1 {get; set;}

@@ -1,7 +1,7 @@
 using CopaAmerica.App.Dominio;
 using System.Collections.Generic;
 
-namespace CopaAmerica.App.Persistencia
+namespace CopaAmerica.App.Persistencia.AppRepositorios
 {
     public interface IRepositorioPersonas
     {

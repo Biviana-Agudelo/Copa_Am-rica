@@ -5802,34 +5802,31 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\HP\\.nuget\\packages\\": {}
+    "C:\\Users\\WINDOWS 11\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\CopaAmerica\\CopaAmerica.App\\CopaAmerica.App.Consola\\CopaAmerica.App.Consola.csproj",
+      "projectUniqueName": "H:\\ProgramacionC#\\CopaAmerica\\CopaAmerica.App\\CopaAmerica.App.Consola\\CopaAmerica.App.Consola.csproj",
       "projectName": "CopaAmerica.App.Consola",
-      "projectPath": "D:\\CopaAmerica\\CopaAmerica.App\\CopaAmerica.App.Consola\\CopaAmerica.App.Consola.csproj",
-      "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-      "outputPath": "D:\\CopaAmerica\\CopaAmerica.App\\CopaAmerica.App.Consola\\obj\\",
+      "projectPath": "H:\\ProgramacionC#\\CopaAmerica\\CopaAmerica.App\\CopaAmerica.App.Consola\\CopaAmerica.App.Consola.csproj",
+      "packagesPath": "C:\\Users\\WINDOWS 11\\.nuget\\packages\\",
+      "outputPath": "H:\\ProgramacionC#\\CopaAmerica\\CopaAmerica.App\\CopaAmerica.App.Consola\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\WINDOWS 11\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "D:\\CopaAmerica\\CopaAmerica.App\\CopaAmerica.App.Persistencia\\CopaAmerica.App.Persistencia.csproj": {
-              "projectPath": "D:\\CopaAmerica\\CopaAmerica.App\\CopaAmerica.App.Persistencia\\CopaAmerica.App.Persistencia.csproj"
+            "H:\\ProgramacionC#\\CopaAmerica\\CopaAmerica.App\\CopaAmerica.App.Persistencia\\CopaAmerica.App.Persistencia.csproj": {
+              "projectPath": "H:\\ProgramacionC#\\CopaAmerica\\CopaAmerica.App\\CopaAmerica.App.Persistencia\\CopaAmerica.App.Persistencia.csproj"
             }
           }
         }
@@ -5842,7 +5839,6 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
-        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Design": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -5866,7 +5862,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.412\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -2,7 +2,7 @@ using CopaAmerica.App.Dominio;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CopaAmerica.App.Persistencia
+namespace CopaAmerica.App.Persistencia.AppRepositorios
 {
     public class RepositorioEquipos:IRepositorioEquipos
     {

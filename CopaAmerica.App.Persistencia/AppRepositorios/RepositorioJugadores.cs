@@ -2,7 +2,7 @@ using CopaAmerica.App.Dominio;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CopaAmerica.App.Persistencia
+namespace CopaAmerica.App.Persistencia.AppRepositorios
 {
     public class RepositorioJugadores:IRepositorioJugadores
     {
@@ -22,7 +22,7 @@ namespace CopaAmerica.App.Persistencia
 
         void IRepositorioJugadores.EliminarJugador(int Id)
         {
-            var JugadorEncontrado = _AppContext.Jugadores.FirstOrDefault(p => p.JugadorId == Id);
+            var JugadorEncontrado = _AppContext.Jugadores.FirstOrDefault(j => j.JugadorId == Id);
             if(JugadorEncontrado == null)
             {
                 return;

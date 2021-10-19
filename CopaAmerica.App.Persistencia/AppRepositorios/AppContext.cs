@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using CopaAmerica.App.Dominio;
 
-namespace CopaAmerica.App.Persistencia
+namespace CopaAmerica.App.Persistencia.AppRepositorios
 {
     public class AppContext : DbContext
     {

@@ -2,7 +2,7 @@ using CopaAmerica.App.Dominio;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CopaAmerica.App.Persistencia
+namespace CopaAmerica.App.Persistencia.AppRepositorios
 {
     public class RepositorioPersonas:IRepositorioPersonas
     {
@@ -15,9 +15,9 @@ namespace CopaAmerica.App.Persistencia
         
         Persona IRepositorioPersonas.CrearPersona(Persona Persona)
         {
-            var personaEcontrada = _AppContext.Personas.Add(Persona);
+            var personaEncontrada = _AppContext.Personas.Add(Persona);
             _AppContext.SaveChanges();
-            return personaEcontrada.Entity;
+            return personaEncontrada.Entity;
         }
 
         void IRepositorioPersonas.EliminarPersona(int Id)

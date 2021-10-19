@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using CopaAmerica.App.Dominio;
-using CopaAmerica.App.Persistencia;
+using CopaAmerica.App.Persistencia.AppRepositorios;
 
 namespace CopaAmerica.App.Consola
 {
     class Program
     {
-        private static IRepositorioPersonas _repoPersona = new RepositorioPersonas(new Persistencia.AppContext());
-        private static IRepositorioJugadores _repoJugador = new RepositorioJugadores(new Persistencia.AppContext());
-        private static IRepositorioEquipos _repoEquipo = new RepositorioEquipos(new Persistencia.AppContext());
+        private static IRepositorioPersonas _repoPersona = new RepositorioPersonas(new Persistencia.AppRepositorios.AppContext());
+        private static IRepositorioJugadores _repoJugador = new RepositorioJugadores(new Persistencia.AppRepositorios.AppContext());
+        private static IRepositorioEquipos _repoEquipo = new RepositorioEquipos(new Persistencia.AppRepositorios.AppContext());
+        private static IRepositorioDirectoresTecnicos _repoDT = new RepositorioDirectoresTecnicos(new Persistencia.AppRepositorios.AppContext());
 
         static void Main(string[] args)
         {
@@ -71,7 +72,30 @@ namespace CopaAmerica.App.Consola
                             break;
                     }
                     break;
-                
+                case "3":
+                    Console.WriteLine("\nDT\n");
+                    B = listarCRUD();
+                    switch (B)
+                    {
+                        case "1":
+                            CrearDT();
+                            break;
+                        case "2":
+                            BuscarDT();
+                            break;
+                        case "3":
+                            ActualizarDT();
+                            break;
+                        case "4":
+                            EliminarDT();
+                            break;
+                        case "5":
+                            ListarDT();
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
                 default:
                     break;
             }
@@ -128,10 +152,22 @@ namespace CopaAmerica.App.Consola
         private static void ListarEquipos()
         {
             IEnumerable<Equipo> Equipos = _repoEquipo.BuscarEquipos();
+            List<Equipo> lista = new List<Equipo>();
+            int i = 0;
             foreach (var item in Equipos)
             {
                 Console.WriteLine(item.NombreEquipo);
+                lista.Add(null);
+                lista[i] = item;
+                i++;
             }
+            foreach (var item in lista)
+            {
+                Console.WriteLine(item.EquipoId);
+            }
+            Console.WriteLine(lista.Count());
+            lista.Clear();
+            Console.WriteLine(lista.Count());
         }
 
 
@@ -194,6 +230,75 @@ namespace CopaAmerica.App.Consola
         }
 
         private static void ListarJugadores()
+        {
+            Console.WriteLine("Ingrese id del Equipo: ");
+            int EquipoId = Int32.Parse(Console.ReadLine());
+            var equipoEncontrado = _repoEquipo.BuscarEquipo(EquipoId);
+            var listaJugadores = _repoJugador.BuscarJugadores(equipoEncontrado);
+            foreach (var item in listaJugadores)
+            {
+                Console.WriteLine(item.Persona.Nombre + " " + item.Persona.Apellido);
+            }
+        }
+
+
+        private static void CrearDT()
+        {
+            Console.WriteLine("Ingrese nombre del DT: ");
+            string Nombre = Console.ReadLine();
+            Console.WriteLine("Ingrese apellido del DT: ");
+            string Apellido = Console.ReadLine();
+            Console.WriteLine("Ingrese nacionalidad del DT: ");
+            string Nacionalidad = Console.ReadLine();
+            Console.WriteLine("Ingrese equipo del DT: ");
+            string NombreEquipo = Console.ReadLine();
+            var Persona = new Persona {Nombre = Nombre, Apellido = Apellido};
+            var EquipoBuscado = _repoEquipo.BuscarEquipo(NombreEquipo);
+            Console.WriteLine(EquipoBuscado.EquipoId);
+            var DT = new DirectorTecnico {Nacionalidad = Nacionalidad, Persona = Persona, EquipoId = EquipoBuscado.EquipoId};
+
+            _repoDT.CrearDT(DT);
+        }
+
+        private static void BuscarDT()
+        {
+            Console.WriteLine("Ingrese id del jugador: ");
+            int JugadorId = Int32.Parse(Console.ReadLine());
+            var JugadorEncontrado = _repoJugador.BuscarJugador(JugadorId);
+            Console.WriteLine(JugadorEncontrado.Persona.Nombre + " " + JugadorEncontrado.Persona.Apellido);
+            Console.WriteLine("Posicion: " + JugadorEncontrado.Posicion);
+            Console.WriteLine("Numero de equipo: " + JugadorEncontrado.NumeroEquipo);
+            Console.WriteLine("Equipo: " + JugadorEncontrado.Equipo.NombreEquipo);
+        }
+
+        private static void ActualizarDT()
+        {
+            Console.WriteLine("Ingrese id del jugador: ");
+            int JugadorId = Int32.Parse(Console.ReadLine());
+            var JugadorEncontrado = _repoJugador.BuscarJugador(JugadorId);
+            
+            Console.WriteLine("Ingrese nuevo nombre del Jugador: ");
+            JugadorEncontrado.Persona.Nombre = Console.ReadLine();
+            Console.WriteLine("Ingrese nuevo apellido del Jugador: ");
+            JugadorEncontrado.Persona.Apellido = Console.ReadLine();
+            Console.WriteLine("Ingrese nueva posición del Jugador: ");
+            JugadorEncontrado.Posicion = Console.ReadLine();
+            Console.WriteLine("Ingrese nuevo numero del Jugador: ");
+            JugadorEncontrado.NumeroEquipo = Console.ReadLine();
+            var jugadorActualizado = _repoJugador.ActualizarJugador(JugadorEncontrado);
+        }
+
+        private static void EliminarDT()
+        {
+            Console.WriteLine("Ingrese id del jugador: ");
+            int JugadorId = Int32.Parse(Console.ReadLine());
+            var JugadorEncontrado = _repoJugador.BuscarJugador(JugadorId);
+            
+            _repoJugador.EliminarJugador(JugadorEncontrado.JugadorId);
+            _repoPersona.EliminarPersona(JugadorEncontrado.PersonaId);
+        }
+
+        private static void ListarDT()
         {
             Console.WriteLine("Ingrese id del Equipo: ");
             int EquipoId = Int32.Parse(Console.ReadLine());

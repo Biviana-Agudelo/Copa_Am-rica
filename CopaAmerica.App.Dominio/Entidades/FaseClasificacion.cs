@@ -6,8 +6,10 @@ namespace CopaAmerica.App.Dominio
     public class FaseClasificacion
     {
         public int FaseClasificacionId {get; set;}
-        public Equipo Equipos {get; set;}
-        public Grupo Grupos {get; set;}
+        public int EquipoId {get; set;}
+        public virtual Equipo Equipos {get; set;}
+        public int GrupoId {get; set;}
+        public virtual Grupo Grupos {get; set;}
         public string Posicion {get; set;}
         public string PJ {get; set;}
         public string PG {get; set;}

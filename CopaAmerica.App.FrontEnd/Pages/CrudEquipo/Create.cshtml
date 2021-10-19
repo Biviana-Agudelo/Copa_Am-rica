@@ -1,0 +1,100 @@
+@page
+@model CopaAmerica.App.FrontEnd.Pages.CrudEquipo.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<head>
+<script language="javascript">
+function crear(){
+    var col = 4;
+    var filas = document.getElementById("rows").value;
+    var tabla="<table border=\"0\">";
+    tabla+="<tr>";
+    tabla+='<td class="col-md-3">Nombre</td><td class="col-md-3">Apellido</td><td class="col-md-3">Posición</td><td class="col-md-3">Número del jugador</td>';
+    tabla+="</tr>";
+    
+    for(i = 0; i < filas; i++){
+        tabla+="<tr>";
+        tabla+='<td class="col-md-3">' + '<input asp-for="ListaNombresJugadores[]" class="form-control" />' + '</td>';
+        tabla+='<span asp-validation-for="ListaNombresJugadores[]" class="text-danger"></span>';
+        tabla+='<td class="col-md-3">' + '<input asp-for="ListaApellidosJugadores[]" class="form-control" />' + '</td>';
+        tabla+='<span asp-validation-for="ListaApellidosJugadores[]" class="text-danger"></span>';
+        tabla+='<td class="col-md-3"><select asp-for="ListaPosicionesJugadores[]">';
+        tabla+= '<option value="Arquero">Arquero</option>';
+        tabla+= '<option value="Defensa">Defensa</option>';
+        tabla+= '<option value="Delantero">Delantero</option>';
+        tabla+= '<option value="Mediocampista">Mediocampista</option>';
+        tabla+= '<option value="Volante">Volante</option></select></td>';
+        tabla+='<span asp-validation-for="ListaPosicionesJugadores[]" class="text-danger"></span>';
+        //tabla+='<td class="col-md-3">' + '<input asp-for="ListaPosicionesJugadores[]" class="form-control" />' + '</td>';
+        tabla+='<td class="col-md-3">' + '<input asp-for="ListaNumerosJugadores[]" class="form-control" />' + '</td>';
+        tabla+='<span asp-validation-for="ListaNumerosJugadores[]" class="text-danger"></span>';
+        tabla+="</tr>";
+    }
+    tabla+="</table>";
+    document.getElementById("resultado").innerHTML=tabla;
+}
+</script>
+</head>
+
+<h1>Create</h1>
+
+<h4>Equipo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Nombre del equipo</label>
+                <input asp-for="Equipo.NombreEquipo" class="form-control" />
+                <span asp-validation-for="Equipo.NombreEquipo" class="text-danger"></span>
+            </div>
+
+            <dl class="row">
+                <dt class="col-sm-10">
+                    Director Técnico
+                </dt>
+            </dl>
+            <div class="form-group">
+                <label class="control-label">Nombre</label>
+                <input asp-for="DT.Persona.Nombre" class="form-control" />
+                <span asp-validation-for="DT.Persona.Nombre" class="text-danger"></span>
+                <label class="control-label">Apellido</label>
+                <input asp-for="DT.Persona.Apellido" class="form-control" />
+                <span asp-validation-for="DT.Persona.Apellido" class="text-danger"></span>
+                <label class="control-label">Nacionalidad</label>
+                <input asp-for="DT.Nacionalidad" class="form-control" />
+                <span asp-validation-for="DT.Nacionalidad" class="text-danger"></span>
+            </div>
+
+            
+            <dl class="row">
+                <dt class="col-sm-10">
+                    Jugadores
+                </dt>
+            </dl>
+            <label>Defina la cantidad de jugadores a ingresar: </label>
+
+            <input type="text" id="rows" /><br />
+            <input type="button" id="enviar" value="crear tabla" onclick="crear()"/>
+            <div id="resultado"></div>
+            <div><label>
+
+            </label></div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
